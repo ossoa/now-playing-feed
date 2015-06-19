@@ -1,0 +1,24 @@
+{
+  "name": "now-playing-feed",
+  "version": "0.1.0",
+  "description": "Node.js app to return Spotify #NowPlaying tweets",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "~4.9.x",
+    "oauth": "^0.9.13"
+  },
+  "engines": {
+    "node": "0.12.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ossoa/now-playing-feed.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ]
+}

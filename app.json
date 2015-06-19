@@ -1,0 +1,5 @@
+{
+  "name": "Twitter #NowPlaying Feed",
+  "description": "Node.js app to return Spotify #NowPlaying tweets",
+  "repository": "https://github.com/ossoa/now-playing-feed.git"
+}
