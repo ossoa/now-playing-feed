@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var config = require('./config');
 
 var OAuth = require('oauth');
 
@@ -14,14 +13,13 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(request, response, next) {
-
   var TWITTER_URL = 'https://api.twitter.com/1.1/search/tweets.json?q=%23NowPlaying&result_type=recent';
 
   var oauth = new OAuth.OAuth(
       'https://api.twitter.com/oauth/request_token',
       'https://api.twitter.com/oauth/access_token',
-      config.twitter.consumerKey,
-      config.twitter.consumerSecret,
+      process.env.TWITTER_CONSUMER_KEY,
+      process.env.TWITTER_CONSUMER_SECRET,
       '1.0A',
       null,
       'HMAC-SHA1'
@@ -29,8 +27,8 @@ app.get('/', function(request, response, next) {
 
   oauth.get(
     TWITTER_URL,
-    config.twitter.accessToken,
-    config.twitter.accessTokenSecret,
+    process.env.TWITTER_ACCESS_TOKEN,
+    process.env.TWITTER_ACCESS_TOKEN_SECRET,
     function (e, data, res) {
       if (e) {
         response.status(e.statusCode).send('Sorry, something went wrong');
