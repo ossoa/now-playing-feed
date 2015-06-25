@@ -1,7 +1,11 @@
 var OAuth = require('oauth');
 var TWITTER_URL = 'https://api.twitter.com/1.1/search/tweets.json?q=%23NowPlaying%20source%3Aspotify&count=5';
 
-var initTweetFeed = function(callback) {
+var init = function() {
+  return new Promise(getData);
+};
+
+var getData = function(resolve, reject) {
   var oauth = new OAuth.OAuth(
       'https://api.twitter.com/oauth/request_token',
       'https://api.twitter.com/oauth/access_token',
@@ -18,15 +22,15 @@ var initTweetFeed = function(callback) {
     process.env.TWITTER_ACCESS_TOKEN_SECRET,
     function (error, data) {
       if (error) {
-        callback(error, null);
+        reject(error);
       } else {
         var formattedData = JSON.parse(data);
-        callback(null, formattedData);
+        resolve(formattedData);
       }
     }
   );
-}
+};
 
 module.exports = {
-  init: initTweetFeed
+  init: init
 };

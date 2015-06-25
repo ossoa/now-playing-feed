@@ -14,13 +14,15 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(request, response, next) {
-  twitter.init(function(error, data) {
-    if (error) {
-      response.status(error.statusCode).send('Sorry, something went wrong');
-    } else {
-      response.status(200).send(data);
-    }
-  });
+  function successMessage(data) {
+    response.status(200).send(data);
+  }
+  function errorMessage(error) {
+    response.status(error.statusCode).send('Sorry, something went wrong');
+  }
+
+  twitter.init()
+    .then(successMessage, errorMessage);
 });
 
 app.listen(app.get('port'), function() {
