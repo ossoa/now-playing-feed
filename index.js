@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(request, response, next) {
-  var TWITTER_URL = 'https://api.twitter.com/1.1/search/tweets.json?q=%23NowPlaying&result_type=recent';
+  var TWITTER_URL = 'https://api.twitter.com/1.1/search/tweets.json?q=%23NowPlaying%20source%3Aspotify';
 
   var oauth = new OAuth.OAuth(
       'https://api.twitter.com/oauth/request_token',
@@ -33,7 +33,8 @@ app.get('/', function(request, response, next) {
       if (e) {
         response.status(e.statusCode).send('Sorry, something went wrong');
       } else {
-        response.status(200).send(data);
+        var formattedData = JSON.parse(data);
+        response.status(200).send(formattedData);
       }
     }
   );
