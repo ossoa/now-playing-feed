@@ -1,4 +1,5 @@
 var twitter = require('./models/twitter');
+var spotify = require('./models/spotify');
 var express = require('express');
 var app = express();
 
@@ -18,10 +19,12 @@ app.get('/', function(request, response, next) {
     response.status(200).send(data);
   }
   function errorMessage(error) {
+    console.log(error);
     response.status(error.statusCode).send('Sorry, something went wrong');
   }
 
   twitter.init()
+    .then(spotify.init, errorMessage)
     .then(successMessage, errorMessage);
 });
 

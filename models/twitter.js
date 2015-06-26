@@ -25,7 +25,7 @@ var getData = function(resolve, reject) {
         reject(error);
       } else {
         var formattedData = JSON.parse(data);
-        resolve(formattedData);
+        resolve(formattedData.statuses);
       }
     }
   );
