@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "express": "~4.9.x",
-    "oauth": "^0.9.13"
+    "oauth": "^0.9.13",
+    "request": "^2.58.0"
   },
   "engines": {
     "node": "0.12.2"
