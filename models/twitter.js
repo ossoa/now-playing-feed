@@ -1,5 +1,6 @@
 var OAuth = require('oauth');
 var TWITTER_URL = 'https://api.twitter.com/1.1/search/tweets.json?q=%23NowPlaying%20source%3Aspotify&count=5';
+var tweets = [];
 
 var init = function() {
   return new Promise(getData);
@@ -31,6 +32,46 @@ var getData = function(resolve, reject) {
   );
 };
 
+var findTweet = function(statuses) {
+  tweets = statuses;
+  return new Promise(findTweetPromise);
+};
+
+var findTweetPromise = function(resolve, reject) {
+  if (!tweets || tweets.length < 0) {
+    reject({
+      statusCode: 404,
+      msg: 'No tweets'
+    });
+    return;
+  }
+
+  var found = false;
+  tweets.some(function(tweet) {
+    if (tweet.entities && tweet.entities.urls) {
+      tweet.entities.urls.some(function(url) {
+        if (url.expanded_url.indexOf('http://spoti.fi/') === 0) {
+          found = true;
+          resolve({
+            spotifyURI: url.expanded_url,
+            tweet: tweet
+          });
+          return true;
+        }
+      });
+    }
+    return found;
+  });
+
+  if (!found) {
+    reject({
+      statusCode: 404,
+      msg: 'No tweet found'
+    });
+  }
+};
+
 module.exports = {
-  init: init
+  init: init,
+  findTweet: findTweet
 };
