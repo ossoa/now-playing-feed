@@ -13,6 +13,6 @@ $ npm install
 $ npm start
 ```
 
-Set confgi variables with your Twitter API keys, tokens and secrets. Create a new Twitter app [here](https://apps.twitter.com)
+Set config variables with your Twitter and Spotify API keys, tokens and secrets. Create a new Twitter app [here](https://apps.twitter.com) and new Spotify app [here](https://developer.spotify.com/my-applications).
 
 Your app should now be running on [localhost:3000](http://localhost:3000/).
