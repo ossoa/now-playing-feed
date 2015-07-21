@@ -53,7 +53,7 @@ var findTweetPromise = function(resolve, reject) {
         if (url.expanded_url.indexOf('http://spoti.fi/') === 0) {
           found = true;
           resolve({
-            spotifyURI: url.expanded_url,
+            spotifyURL: url.expanded_url,
             tweet: tweet
           });
           return true;

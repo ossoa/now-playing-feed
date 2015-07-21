@@ -26,6 +26,7 @@ app.get('/', function(request, response, next) {
   twitter.init()
     .then(twitter.findTweet, errorMessage)
     .then(spotify.getSpotifyUri, errorMessage)
+    .then(spotify.getSpotifyData, errorMessage)
     .then(successMessage, errorMessage);
 });
 
