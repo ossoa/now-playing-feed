@@ -39,10 +39,7 @@ var findTweet = function(statuses) {
 
 var findTweetPromise = function(resolve, reject) {
   if (!tweets || tweets.length < 0) {
-    reject({
-      statusCode: 404,
-      msg: 'No tweets'
-    });
+    reject({ statusCode: 404, msg: 'No tweets' });
     return;
   }
 
@@ -64,10 +61,7 @@ var findTweetPromise = function(resolve, reject) {
   });
 
   if (!found) {
-    reject({
-      statusCode: 404,
-      msg: 'No tweet found'
-    });
+    reject({ statusCode: 404, msg: 'No tweet found' });
   }
 };
 

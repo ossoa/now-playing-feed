@@ -19,7 +19,6 @@ app.get('/', function(request, response, next) {
     response.status(200).send(data);
   }
   function errorMessage(error) {
-    console.log(error);
     response.status(error.statusCode).send('Sorry, something went wrong');
   }
 
