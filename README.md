@@ -1,6 +1,6 @@
 # now-playing-feed
 
-A Node.js app using [Express 4](http://expressjs.com/).
+A Node.js server using [Express 4](http://expressjs.com/). Returns one latest #NowPlaying tweet with Spotify object about the playing item.
 
 ## Running Locally
 
