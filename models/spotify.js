@@ -99,9 +99,9 @@ var generateUrlPath = function() {
   if (parts[1] === 'track' ) {
     url = 'tracks/' + parts[2];
   } else if (parts[1] === 'album' ) {
-    url = 'albums/' + parts[2] + '/tracks';
+    url = 'albums/' + parts[2];
   } else if (parts[1] === 'artist' ) {
-    url = 'artists/' + parts[2] + '/top-tracks?country=US';
+    url = 'artists/' + parts[2];
   } else if (parts[1] === 'user' && parts[3] === 'playlist') {
     url = 'users/' + parts[2] + '/playlists/' + parts[4];
   } else {
