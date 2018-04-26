@@ -7,12 +7,12 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "~4.9.x",
+    "express": "~4.16.3",
     "oauth": "^0.9.13",
     "request": "^2.58.0"
   },
   "engines": {
-    "node": "0.12.2"
+    "node": "~8.11.1"
   },
   "repository": {
     "type": "git",

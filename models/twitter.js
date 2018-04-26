@@ -1,5 +1,5 @@
 var OAuth = require('oauth');
-var TWITTER_URL = 'https://api.twitter.com/1.1/search/tweets.json?q=%23NowPlaying%20source%3Aspotify&count=5';
+var TWITTER_URL = 'https://api.twitter.com/1.1/search/tweets.json?q=%23NowPlaying%20source%3Aspotify&count=5&result_type=recent';
 var tweets = [];
 
 var init = function() {

@@ -9,8 +9,8 @@ Make sure you have [Node.js](http://nodejs.org/)
 ```sh
 $ git clone https://github.com/ossoa/now-playing-feed.git # or clone your own fork
 $ cd now-playing-feed
-$ npm install
-$ npm start
+$ yarn
+$ yarn start
 ```
 
 Set config variables with your Twitter and Spotify API keys, tokens and secrets. Create a new Twitter app [here](https://apps.twitter.com) and new Spotify app [here](https://developer.spotify.com/my-applications).
